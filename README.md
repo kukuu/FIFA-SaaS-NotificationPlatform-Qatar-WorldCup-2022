@@ -42,10 +42,10 @@ The Segment Panel enabled rule-based targeting (e.g., device type, location) usi
 
 ## Key Workflows
 
-- Image/Carousel Upload: Compressed via Lambda (TinyPNG API), validated against pixel specs, and stored in S3 with CloudFront invalidation.
+- **Image/Carousel Upload:** Compressed via Lambda (TinyPNG API), validated against pixel specs, and stored in S3 with CloudFront invalidation.
 
-- Video Processing: FFmpeg Lambda transcoded uploads to 25fps MP4s; buttons timed via scrubber metadata in DynamoDB.
+- **Video Processing:** FFmpeg Lambda transcoded uploads to 25fps MP4s; buttons timed via scrubber metadata in DynamoDB.
 
-- Dynamic Segmentation: Rules (e.g., LOCATION) evaluated at send-time via Lambda, reducing PostgreSQL load.
+- **Dynamic Segmentation:** Rules (e.g., LOCATION) evaluated at send-time via Lambda, reducing PostgreSQL load.
 
-- Monitoring: SonarCloud (code quality), Sentry (errors), Prometheus (throughput), Slack alerts.
+- **Monitoring:** SonarCloud (code quality), Sentry (errors), Prometheus (throughput), Slack alerts.
