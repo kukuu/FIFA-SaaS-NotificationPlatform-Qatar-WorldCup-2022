@@ -11,7 +11,7 @@ The Segment Panel enabled rule-based targeting (e.g., device type, location) usi
 
 ## Architecture Overview
 
-[!image]()
+[!image](https://github.com/kukuu/FIFA-SaaS-NotificationPlatform-Qatar-WC-2022.MD/blob/main/FIFA-SaaS-notification-QATAR-2022.png)
 
 
 ## Key Workflows
