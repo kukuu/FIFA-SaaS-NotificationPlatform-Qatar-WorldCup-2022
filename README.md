@@ -14,6 +14,64 @@ The Segment Panel enabled rule-based targeting (e.g., device type, location) usi
 ![Architecture](https://github.com/kukuu/FIFA-SaaS-NotificationPlatform-Qatar-WC-2022.MD/blob/main/FIFA-Saas-Notification-platform.png)
 
 
+## Microservice
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           MICROSERVICES ARCHITECTURE                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   REACT FRONTEND │━━━▶│   API GATEWAY    │━━━▶│   NODE.JS API   │━━━━━━━━━━━━┐
+│                 │    │                  │    │   SERVICES      │            │
+└─────────────────┘    └──────────────────┘    └─────────────────┘            │
+         │                       │                       │                    │
+         │                       │                       │                    │
+         ▼                       ▼                       ▼                    ▼
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   ELASTICSEARCH  │    │   OAUTH 2.0      │    │   AWS LAMBDA    │    │   KINESIS       │
+│   (Search)       │    │   (Auth)         │    │   (Serverless)  │    │   (Streaming)   │
+└─────────────────┘    └──────────────────┘    └─────────────────┘    └─────────────────┘
+                                 │                       │                    │
+                                 │                       │                    │
+                                 ▼                       ▼                    ▼
+                        ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+                        │   REDIS         │    │   RDS           │    │   DYNAMODB      │
+                        │   (Cache)       │    │   (Structured)  │    │   (NoSQL)       │
+                        └─────────────────┘    └─────────────────┘    └─────────────────┘
+
+                                 ┌─────────────────────────────────────────┐
+                                 │           KUBERNETES CLUSTER            │
+                                 │  ┌─────────────┐ ┌─────────────┐        │
+                                 │  │   SERVICE   │ │   SERVICE   │        │
+                                 │  │   POD       │ │   POD       │        │
+                                 │  └─────────────┘ └─────────────┘        │
+                                 └─────────────────────────────────────────┘
+
+                                 ┌─────────────────────────────────────────┐
+                                 │            OBSERVABILITY                │
+                                 │  ┌─────────┐ ┌─────────┐ ┌─────────┐    │
+                                 │  │PROMETHEUS│ │ GRAFANA │ │   ELK  │    │
+                                 │  │(Metrics) │ │(Viz)    │ │(Logs)  │    │
+                                 │  └─────────┘ └─────────┘ └─────────┘    │
+                                 └─────────────────────────────────────────┘
+
+                                 ┌─────────────────────────────────────────┐
+                                 │           CI/CD PIPELINE                │
+                                 │  ┌─────────────────────────────────────┐ │
+                                 │  │         BITBUCKET PIPELINES         │ │
+                                 │  │    Build → Test → Deploy → Monitor  │ │
+                                 │  └─────────────────────────────────────┘ │
+                                 └─────────────────────────────────────────┘
+
+LEGEND:
+━━━▶  RESTful API Calls
+━━━▶  Data Flow
+━━━▶  Service Communication
+━━━▶  Container Orchestration
+```
+
+
 ## Key Workflows
 
 - **Image/Carousel Upload:** Compressed via Lambda (TinyPNG API), validated against pixel specs, and stored in S3 with CloudFront invalidation.
