@@ -14,9 +14,7 @@ The Segment Panel enabled rule-based targeting (e.g., device type, location) usi
 ![Architecture](https://github.com/kukuu/FIFA-SaaS-NotificationPlatform-Qatar-WC-2022.MD/blob/main/FIFA-Saas-Notification-platform.png)
 
 
-## Microservice
-
-```
+<!--## Microservice```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                           MICROSERVICES ARCHITECTURE                        │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -69,7 +67,7 @@ LEGEND:
 ━━━▶  Data Flow
 ━━━▶  Service Communication
 ━━━▶  Container Orchestration
-```
+``-->`
 
 
 ## Key Workflows
